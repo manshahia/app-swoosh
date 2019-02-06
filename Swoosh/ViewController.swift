@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var bgImg: UIImageView!
+    @IBOutlet weak var logoSwoosh: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        logoSwoosh.frame = CGRect(x: view.frame.size.width/2 - logoSwoosh.frame.size.width/2, y: 50, width: logoSwoosh.frame.size.width, height: logoSwoosh.frame.size.height)
+        
+        bgImg.frame = view.frame
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
