@@ -9,30 +9,36 @@
 import UIKit
 
 class LeagueVC: UIViewController {
+    
+    @IBOutlet weak var nextBtn: BorderButton!
+    var player : Player!
+    
+    @IBAction func onCoedSelected(_ sender: UIButton) {
+        setDesiredLeague(league: "Coed")
+    }
+    @IBAction func onWomensSelected(_ sender: UIButton) {
+        setDesiredLeague(league: "Womens")
+    }
+    @IBAction func onMensSelected(_ sender: UIButton) {
+        setDesiredLeague(league: "Mens")
+    }
+    
+    func setDesiredLeague( league : String)
+    {
+        player.desiredLeague = league
+        nextBtn.isEnabled = true
+    }
+    
     @IBAction func onNextTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "skillVCSegue", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        player = Player()
+}
 
-        // Do any additional setup after loading the view.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
